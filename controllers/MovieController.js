@@ -1,7 +1,9 @@
 const {
-    Movie
+    Movie,
+    Sequelize
 } = require('../models');
 
+const Op = Sequelize.Op;
 const MovieController = {
     getAll(req, res) {
 
@@ -24,6 +26,34 @@ const MovieController = {
                 message: 'there was a problem'
             })
         })
+    },
+
+    getById(req, res) {
+        Movie.findByPk(req.params.id)
+            .then(movies => res.send(movies))
+            .catch(error => {
+                console.error(error);
+                res.status(500).send({
+                    message: 'There was a problem trying to get the movies'
+                })
+            })
+    },
+
+    getByTitle(req, res) {
+        Movie.findAll({ 
+                where: {
+                    name: {
+                        [Op.like]: `%${req.params.name}%`
+                    }
+                }
+            })
+            .then(movies => res.send(movies))
+            .catch(error => {
+                console.error(error);
+                res.status(500).send({
+                    message: 'There was a problem trying to get the movies'
+                })
+            })
     }
 
 }
