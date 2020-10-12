@@ -42,8 +42,8 @@ const MovieController = {
     getByTitle(req, res) {
         Movie.findAll({ 
                 where: {
-                    name: {
-                        [Op.like]: `%${req.params.name}%`
+                    title: {
+                        [Op.like]: `%${req.params.title}%`
                     }
                 }
             })

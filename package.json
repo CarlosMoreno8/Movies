@@ -19,6 +19,7 @@
   "homepage": "https://github.com/CarlosMoreno8/Movies#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "heroku": "^7.45.0",
     "mysql2": "^2.2.5",
     "nodemon": "^2.0.4",
     "sequelize": "^6.3.5"
