@@ -10,7 +10,9 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+
+      this.belongsToMany(models.Order, { through: models.OrderMovie }); //relacion many to many, pertenece a models.Order a traves de models.OrderMovie
+      
     }
   };
   Movie.init({
