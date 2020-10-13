@@ -19,7 +19,7 @@ const MovieController = {
     
     create(req, res) {
         Movie.create(req.body)
-        .then(bailarin => res.send(bailarin))
+        .then(movies => res.send(movies))
         .catch(error => {
             console.log(error);
             res.status(500).send({
