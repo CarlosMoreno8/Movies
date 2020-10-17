@@ -60,8 +60,8 @@ El alquiler de la película será de 2 días
 
 POST /movies
 {
-    "UsuarioId": 1,
-    "PeliculaId": 1
+    "UserId": 1,
+    "MovieId": 1
 }
 
 Get /movies
